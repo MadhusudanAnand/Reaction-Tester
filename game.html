@@ -1,0 +1,72 @@
+<html>
+<head>
+<style type="text/css">
+	.r{
+		position:relative;
+		border:1px solid ;
+	}
+	
+</style>
+</head>
+<body>
+<h1>Reaction tester</h1>
+	<h2>Your best score:<span id="bstt"></span> </h2>
+	<h2 >respose time:<span id="res"></span></h2>
+	<div id="s" class="r"></div>
+	<script type="text/javascript">
+	disback();
+	var l;
+	var t;
+	var td;
+	var h;
+	var cir;
+	var ins = new Date().getTime();
+	var fin;
+	var bst="10000000000000000000000000000000000000000";
+	function dcolor(){
+		var ch = "0123456789ABCDEF".split('');
+		var clr="#";
+		for(var i=0;i<6;i++)
+		{
+		clr = clr +ch[Math.floor(Math.random()*16)];
+		}
+		return clr;
+	}
+	function disback(){
+		cir=Math.random();
+		var col = dcolor();
+		l=30+Math.random()*500;
+		t=30+Math.random()*400;
+		h=20+Math.random()*200;
+		if(cir>0.5)
+		{
+		document.getElementById("s").style.borderRadius="50%";
+		}
+		else
+		{
+		document.getElementById("s").style.borderRadius="0";
+		}
+		document.getElementById("s").style.display = "block";
+		document.getElementById("s").style.top = t;
+		document.getElementById("s").style.left = l;
+		document.getElementById("s").style.backgroundColor = col;
+		document.getElementById("s").style.height = h;
+		document.getElementById("s").style.width=h;
+		ins = new Date().getTime();
+	}
+	document.getElementById("s").onclick = function () {
+		fin = new Date().getTime();
+		td=Math.random()*2000;
+		document.getElementById("s").style.display = "none";
+		setTimeout(disback,td);
+		var rt = (fin - ins)/1000;
+		document.getElementById("res").innerHTML= " "+rt + "sec";
+		if(bst>rt)
+		{	bst=rt;
+			document.getElementById("bstt").innerHTML= " "+bst + "sec"
+		}
+	}
+	
+	</script>
+</body>
+</html>
