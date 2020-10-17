@@ -1,9 +1,9 @@
 <html>
 <head>
 <style type="text/css">
-	.r{
-		position:relative;
-		border:1px solid ;
+	.q{
+		position:relative; // Assigning Position
+		border:1.5px solid ; // Assigning border
 	}
 	
 </style>
@@ -12,7 +12,7 @@
 <h1>Reaction tester</h1>
 	<h2>Your best score:<span id="bstt"></span> </h2>
 	<h2 >respose time:<span id="res"></span></h2>
-	<div id="s" class="r"></div>
+	<div id="p" class="q"></div>
 	<script type="text/javascript">
 	disback();
 	var l;
@@ -40,24 +40,24 @@
 		h=20+Math.random()*200;
 		if(cir>0.5)
 		{
-		document.getElementById("s").style.borderRadius="50%";
+		document.getElementById("p").style.borderRadius="50%";
 		}
 		else
 		{
 		document.getElementById("s").style.borderRadius="0";
 		}
-		document.getElementById("s").style.display = "block";
-		document.getElementById("s").style.top = t;
-		document.getElementById("s").style.left = l;
-		document.getElementById("s").style.backgroundColor = col;
-		document.getElementById("s").style.height = h;
-		document.getElementById("s").style.width=h;
+		document.getElementById("p").style.display = "block";
+		document.getElementById("p").style.top = t;
+		document.getElementById("p").style.left = l;
+		document.getElementById("p").style.backgroundColor = col;
+		document.getElementById("p").style.height = h;
+		document.getElementById("p").style.width=h;
 		ins = new Date().getTime();
 	}
-	document.getElementById("s").onclick = function () {
+	document.getElementById("p").onclick = function () { 
 		fin = new Date().getTime();
 		td=Math.random()*2000;
-		document.getElementById("s").style.display = "none";
+		document.getElementById("p").style.display = "none";
 		setTimeout(disback,td);
 		var rt = (fin - ins)/1000;
 		document.getElementById("res").innerHTML= " "+rt + "sec";
